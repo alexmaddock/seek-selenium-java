@@ -59,4 +59,5 @@ Maven initialises the project for you and it's root dir, so linking it to a git 
 2. run 'git init' via command line
 3. run 'git remote add origin $ssh-address' which you will have copied from github website
 4. run 'git add, git commit, git push' as per normal
+5. You may need to track branches with 'git push --set-upstream origin master' to start
 ```
