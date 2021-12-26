@@ -50,9 +50,12 @@ my-app
 
 Main is the source code, test is the test location. Our concern is with the test location here.
 
+
 ## Linking To Git Repo
 
-Maven initialises the project for you and it's root dir, so linking it to a git repo requires the following steps:
+
+Maven initialises the project for you and it's root dir, so linking it to a git repo requires the following steps... or just follow [this guide](https://kbroman.org/github_tutorial/pages/init.html)
+
 
 ```
 1. Create project in the github site, without a readme preferably
@@ -61,3 +64,35 @@ Maven initialises the project for you and it's root dir, so linking it to a git 
 4. run 'git add, git commit, git push' as per normal
 5. You may need to track branches with 'git push --set-upstream origin master' to start
 ```
+
+## Adding Dependencies
+
+You can add dependencies by searching the Maven site for the latest relevant versions, but they should have this format
+
+```
+<dependency>
+  <groupId>org.seleniumhq.selenium</groupId>
+  <artifactId>selenium-java</artifactId>
+  <version>4.0.0</version>
+</dependency>
+```
+
+To run this you need to do
+
+`mvn dependency:resolve` 
+
+OR
+
+`mvn install`
+
+## Running Code
+
+Best to run `mvn clean` to start, so that the /target dir gets cleaned out from the root. This is a part of gitignore regardless so wont be an issue when it comes to source control.
+
+Compile 
+
+`mvn compile`
+
+Test
+
+`mvn test`
