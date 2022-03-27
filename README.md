@@ -50,6 +50,32 @@ my-app
 
 Main is the source code, test is the test location. Our concern is with the test location here.
 
+The starting class path in this structure is after test/java, so with TestNG if you need to reference the classpath in the class name for below
+
+```
+<suite name="Example test run">
+  <test name="Simple Test">
+    <classes>
+      <class name="${ClassName}"/>
+    </classes>
+  </test>
+</suite>
+```
+
+You have to pass in something like
+
+`
+<class name="com.mycompany.app.AppTest"/>
+`
+
+Skipping the .java extension since it runs from the compiled `/target` dir that is generated in the compile step. 
+
+
+For this dir structure it is as follows (for now)
+
+`
+<class name="1.HelloBrowserTest"/>
+
 
 ## Linking To Git Repo
 
@@ -96,3 +122,24 @@ Compile
 Test
 
 `mvn test`
+
+## API Related Packages / Libs
+
+Using RestAssured it is recommended to do static imports. This may be a good clue to implementing readable and clean Java code with the Page Object Model in use (up for review - see [import-static-class](https://www.javatpoint.com/why-we-use-static-class-in-java)).
+
+https://github.com/rest-assured/rest-assured/wiki/GettingStarted
+
+## Niggles
+
+Some current niggles. 
+
+#### ChromeDriver
+
+This was outdates for the packages in use for this project and was bumped to version 99 or so. 
+Currently the binary is self managed outside of an install manager and on my mac is located at 
+`/usr/bin/local/bin/chromedriver` but ran into some zsh issues documented here when trying to run the install process.
+
+[compdef-issue](https://apple.stackexchange.com/questions/296477/my-command-line-says-complete13-command-not-found-compdef)
+
+Seems the solution is to update nvm or something...
+
