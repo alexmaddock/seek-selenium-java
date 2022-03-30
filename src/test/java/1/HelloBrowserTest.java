@@ -1,17 +1,20 @@
-// package demo;
+package tests;
 
-// import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import io.github.cdimascio.dotenv.Dotenv;
 import org.testng.annotations.Test;
+import api.API;
 
 @Test
 public class HelloBrowserTest {
-    
-    public static void test() {
+
+    public void test() {
+
+        // API api = API;
+        API.auth("THIS THING");
 
         WebDriver driver = new ChromeDriver();
 
@@ -28,8 +31,10 @@ public class HelloBrowserTest {
 
         WebElement searchBar = driver.findElement(By.id("SearchBar__Where"));
 
-        searchBar.sendKeys("Accountant");
+        searchBar.sendKeys("Sydney");
 
         driver.quit();
 
     }
+
+}
